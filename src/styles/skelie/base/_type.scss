@@ -1,0 +1,51 @@
+/* Typography styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+h1,
+h2,
+h3,
+h4 {
+	color: color(brand)
+}
+
+a {
+	color: color(brand);
+	text-decoration: none;
+	border-bottom: 1px solid currentColor;
+	padding: 1px 0;
+	&:hover,
+	&:focus {
+		border: none;
+	}
+}
+
+.code,
+code,
+pre {
+	font-family: $code-font;
+	color: color(shade, steel, dark);
+	font-size: $font-size-small;
+	font-weight: normal;
+	&.nobr {
+		white-space: nowrap;
+	}
+}
+
+code,
+pre {
+	background-color: color(shade, mist, light);
+	border: 1px solid color(shade, mist);
+	border-radius: $radius;
+}
+
+code {
+	padding: $unit/4;
+}
+
+pre {
+	padding: $unit;
+    -webkit-margin-before: 1rem;
+    -webkit-margin-after: 1rem;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}

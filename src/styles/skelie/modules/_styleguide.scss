@@ -1,0 +1,110 @@
+/* Styleguide styles
+ * These are styles written specifically for the
+ * styleguide.html page. It's recommended that
+ * these styles aren't compiled into final build.
+ * styleguide.html is useful for checking styles.
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.swatch {
+	overflow: hidden;
+	// @include col(1,2,bp(md));
+	// @include col(1,3,bp(xl));
+	.base {
+		margin: 0 6rem;
+		@include break(bp(md)) {
+			margin: 0 6rem;
+		}
+		padding: 1rem 0;
+		line-height: 2rem;
+		text-align: center;
+		font-family: $code-font;
+		&:before,
+		&:after {
+			padding: 1rem;
+			line-height: 2rem;
+			float: left;
+			display: block;
+			width: 4rem;
+			text-align: center;
+			@include break(bp(md)) {
+				width: 4rem;
+			}
+		}
+		&:before {
+			margin-top: -1rem;
+		}
+		&:after {
+			margin-top: -5rem;
+		}
+	}
+}
+
+@mixin swatch($group, $color) {
+	&.#{$group} .color-#{$color} {
+		text-transform: lowercase;;
+		&:before {
+			content: '#{$color}';
+			display: block;
+			width: 100%;
+			margin-bottom: .25rem;
+			font-weight: bold;
+			text-transform: capitalize;
+		}
+		.base {
+			background-color: color($group, $color);
+			color: contrasting-color(color($group, $color));
+			&:before {
+				background-color: color($group, $color, light);
+				color: contrasting-color(color($group, $color, light));
+				content: 'light\A #{color($group, $color, light)}';
+				margin-left: -6rem;
+				@include break(bp(md)) {
+					margin-left: -6rem;
+				}
+				border-radius: $radius 0 0 $radius;
+			}
+			&:after {
+				background-color: color($group, $color, dark);
+				color: contrasting-color(color($group, $color, dark));
+				content: 'dark\A #{color($group, $color, dark)}';
+				margin-right: -6rem;
+				@include break(bp(md)) {
+					margin-right: -6rem;
+				}
+				float: right;
+				border-radius: 0 $radius $radius 0;
+			}
+			.val {
+				&:before {
+					content: 'base\A #{color($group, $color, base)}';
+					white-space: pre;
+				}
+			}
+		}
+	}
+}
+
+.swatch-wrapper {
+	@for $i from 1 through length($colors) {
+		$color-group: nth(nth($colors, $i), 1);
+		// group-key: $i;
+		// group-name: $color-group;
+		@for $i from 1 through length(map-get($colors, $color-group)) {
+			$color-name: nth(nth(map-get($colors, $color-group), $i), 1);
+			// color-group: #{$color-name};
+			@include swatch($color-group, $color-name);
+			// @for $i from 1 through length(map-get(map-get($colors, $color-group), $color-name)) {
+			// 	$color-shade: nth(nth(map-get(map-get($colors, $color-group), $color-name), $i), 1);
+			// 	color-shade: #{$color-shade};
+			// }
+		}
+	}
+}
+
+.c-brand {
+	color: color(brand);
+}
+
+.c-alt {
+	color: color(brand, alt);
+}

@@ -1,0 +1,90 @@
+html
+	head
+		title Skelie
+		link(rel="stylesheet", type="text/css", href="styles/css.css")
+	body
+		.body-container
+			h1 Heading 1
+				span.code  #[code.nobr &lt;h1&gt;]&nbsp;heading
+			h2 Heading 2
+				span.code  #[code.nobr &lt;h2&gt;]&nbsp;heading
+			h3 Heading 3
+				span.code  #[code.nobr &lt;h3&gt;]&nbsp;heading
+			h4 Heading 4
+				span.code  #[code.nobr &lt;h4&gt;]&nbsp;heading
+			p Hello world! This is a long form paragraph, where most content will live. There are also #[a(href="#") some links] in #[a(href="#") here], which you can hopefully find easily.
+			.row
+				ul.span6
+					li Unordered list item
+					li Unordered list item
+				ol.span6
+					li Ordered list item
+					li Ordered list item
+			pre Don't forget the &lt;pre&gt;!
+			hr
+			h2 Forms
+			.row.noafter
+				.span6
+					label(for="exampleInputOne") Input
+					input#exampleInputOne(type="text")
+				.span6
+					label(for="exampleInputTwo") Input
+					input#exampleInputTwo(type="text")
+			label(for="exampleTextarea") Textarea
+			textarea#exampleTextarea
+			label Radio
+			label.toggle
+				input(type="radio", name="exampleRadio", checked)
+				span Yes
+			label.toggle
+				input(type="radio", name="exampleRadio")
+				span No
+			label.toggle
+				input(type="radio", name="exampleRadio", disabled)
+				span Maybe
+			label Checkbox
+			label.toggle
+				input(type="checkbox", name="exampleCheckbox")
+				span Yes
+			label.toggle
+				input(type="checkbox", name="exampleCheckbox")
+				span No
+			label.toggle
+				input(type="checkbox", name="exampleCheckbox", disabled, checked)
+				span Maybe
+			hr
+			h2 Buttons
+			p By default there are two buttons, one unstyled and one for brand main. Others can easily be made by using the #[code.nobr button(group, name)] mixin.
+			button Unstyled button
+			button.button-main Main button
+			hr
+			h2 Colours
+			p These can be called using #[code.nobr color(group, name, tone)]. #[code.nobr tone] is optional and will default to #[code.nobr base] when left blank. If #[code.nobr name] is also left blank, the first colour in each group will be used.
+			p For example; #[code.nobr color(brand)] would be the same as #[code.nobr color(brand, main, base)].
+			h3 Shades
+			.row.swatch-wrapper.shade
+				.span6-md.span4-xl.swatch.color-mist
+					.base
+						.val
+				.span6-md.span4-xl.swatch.color-steel
+					.base
+						.val
+			h3 Brand colours
+			.row.swatch-wrapper.brand
+				.span6-md.span4-xl.swatch.color-main
+					.base
+						.val
+				.span6-md.span4-xl.swatch.color-alt
+					.base
+						.val
+			h3 Alert colours
+			.row.swatch-wrapper.alert
+				.span6-md.span4-xl.swatch.color-red
+					.base
+						.val
+				.span6-md.span4-xl.swatch.color-yellow
+					.base
+						.val
+				.span6-md.span4-xl.swatch.color-green
+					.base
+						.val

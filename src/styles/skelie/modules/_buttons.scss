@@ -1,0 +1,47 @@
+/* Button styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+// This mixin allows you to create new buttons using any colour group and name (name is optional, if left blank it will default to the first colour in the defined group)
+@mixin button($group, $name: '') {
+	color: contrasting-color(color($group, $name));
+	background-color: color($group, $name);
+	border-color: color($group, $name);
+	&:hover {
+		background-color: color($group, $name, 'light');
+		border-color: color($group, $name);
+	}
+	&:focus,
+	&:active {
+		background-color: color($group, $name, 'dark');
+		border-color: color($group, $name, 'dark');
+	}
+}
+
+// Base styles for all buttons
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	display: inline;
+	padding: $unit;
+	text-align: center;
+	font-weight: 600;
+	text-decoration: none;
+	white-space: nowrap;
+	border-radius: $radius;
+	border: 2px solid;
+	cursor: pointer;
+	box-sizing: border-box;
+	min-width: 6rem;
+	margin-right: $unit;
+	-webkit-margin-after: .5rem;
+	-webkit-margin-end: $unit;
+
+	// Colour settins for unstyled buttons
+	@include button(shade);
+
+	// Button built with main brand. Copy this syntax to create further buttons
+	&.button-main {
+		@include button(brand);
+	}
+}

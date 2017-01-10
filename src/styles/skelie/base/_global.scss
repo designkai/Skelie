@@ -1,0 +1,34 @@
+/* Global styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+*:focus {
+	outline: 2px solid #FEC442;
+}
+
+html {
+	font-size: $font-size;
+}
+
+body {
+	font-size: 1rem;
+	line-height: 1.6;
+	font-weight: 400;
+	font-family: $body-font;
+}
+
+.body-container {
+	margin: 0 auto;
+	width: $body-width-max;
+	max-width: $body-width-max;
+	margin-bottom: $unit*3;
+	@include break(bp(md)) {
+		width: $body-width;
+	}
+}
+
+hr {
+	background: color(shade, mist);
+	height: $radius;
+	border: none;
+	border-radius: $radius/2;
+}

@@ -1,0 +1,83 @@
+/* Type settings
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+$font-size:					16px;
+$font-size-small:			.8rem;
+$font-size-medium:			1.25rem;
+$font-size-large:			1.4rem;
+
+$body-font:					"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$heading-font:				$body-font;
+$code-font:					"Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+
+// SimplyGrid settings
+// https://github.com/designkai/SimplyGrid
+$breakpoints: (
+	sm:						568px,
+	md:						768px,
+	lg:						1024px,
+	xl:						1280px,
+);
+
+$create-classes:			true; // Change to true to build grid
+$grid-gutters:				2vmax; // Sets the space between rows and columns
+$grid-columns:				12; // Sets the number of columns
+$grid-rowclass:				row; // Sets the class name used for rows
+$grid-colclass:				span; // Sets the class name used for columns
+
+// Global settings
+$body-width:				bp(xl) - $font-size*2;
+$body-width-max:			85%;
+
+
+// Colour settings
+// It's recommended that colours within groups are listed in priority order. Using color(brand) will default to the fist brand colour, making the order important
+$colors: (
+	brand: (
+		main: (
+			base: 				#FC8B32,
+			light: 				10%,
+			dark: 				10%,
+		),
+		alt: (
+			base: 				#4488ED,
+			light: 				7.5%,
+			dark: 				10%,
+		),
+	),
+	shade: (
+		mist: (
+			base: 				#e1e5e9,
+			light: 				5%, // Percentage to lighten it
+			dark: 				5%, // Percentage to darken it
+		),
+		steel: (
+			base: 				#646569,
+			light: 				10%,
+			dark: 				10%,
+		),
+	),
+	alert: (
+		red: (
+			base: 				#FC635E,
+			light: 				5%,
+			dark: 				10%,
+		),
+		yellow: (
+			base: 				#FEC442,
+			light: 				10%,
+			dark: 				10%,
+		),
+		green: (
+			base: 				#35CB4B,
+			light: 				10%,
+			dark: 				7.5%,
+		),
+	)
+);
+
+/* Units of measurement
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+// Vertical spacing
+$unit:						1rem;
+// Border radius
+$radius:					.15rem;

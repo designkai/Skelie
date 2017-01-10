@@ -1,0 +1,33 @@
+/* Color function
+ * This allows you call any colour from the settings list, along with its
+ * modifier light or dark. Leaving name blank will default to the first in the
+ * group, while leaving tone blank will default to base.
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@function color($group, $name: '', $tone: 'base') {
+	$color-group: map-get($colors, $group);
+	$color-name: null;
+	@if $name == '' {
+		$color-name: map-get($color-group, nth(nth($color-group, 1), 1));
+	} @else {
+		$color-name: map-get($color-group, $name);
+	}
+	$color-tone: map-get($color-name, $tone);
+	// $key: map-get(map-get(map-get($colors, $group), $name), $tone);
+	@if $tone == 'base' {
+		@return $color-tone;
+	} @else if $tone == 'light' {
+		@return lighten(map-get($color-name, 'base'), $color-tone);
+	} @else if $tone == 'dark' {
+		@return darken(map-get($color-name, 'base'), $color-tone);
+	}
+}
+
+/* BreakPoint function
+ * This allows you to use any breakpoint value from the list in settings by using,
+ * for example, something like: bp(lg);
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@function bp($size) {
+	@return map-get($breakpoints, $size);
+}
